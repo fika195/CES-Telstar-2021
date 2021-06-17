@@ -1,41 +1,226 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <base href="%PUBLIC_URL%/" />
-    <!--
-      manifest.json provides metadata used when your web app is added to the
-      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<!DOCTYPE html>
+<!-- doctype är en instruktion för webläsaren om vilken version av html koden är skriven i. -->
+<html lang="sv">
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>TLPD</title>
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+    <title> Telstar Logistics Package Delivery </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+<body onload="next('homepage')">
+    <div class="container">
+        <header class="large-row large-col-4">
+            <h1></h1>
+        </header>
+        <nav class="large-nav large-row large-col-4">
+            <a id="active" href="index.html" tabindex="1"> Homepage (Route Calculation) </a>
+        </nav>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+
+
+
+        <div id=main_place>
+            main
+        </div>
+
+
+        <div id=homepage style="display: none;">
+            <section class="small-row small-col-1 large-row large-col-5 sectiontext small-form">
+                <h2> Route Calculation (step 1 of 3)</h2>
+
+
+                <div id="routesubmit">
+                    <div>
+                        <label class="boldinfo"><a>From</a>
+                            <p>
+                                <select id="from" name="from" required>
+                                    <option value="CityA">CityA</option>
+                                    <option value="CityA">CityB</option>
+                                    <option value="CityA">CityC</option>
+                                </select>
+                            </p>
+                            <label class="boldinfo"><a>Destination</a>
+                                <p>
+                                    <select id="destination" name="destination" required>
+                                        <option value="CityA">CityA</option>
+                                        <option value="CityA">CityB</option>
+                                        <option value="CityA">CityC</option>
+                                    </select>
+                                </p>
+                    </div>
+
+                    <div id="companysubmit">
+                        <label class="boldinfo"><a>Company</a>
+                            <p>
+                                <select id="company" name="company" required>
+                                    <option value="CityA">CompanyA</option>
+                                    <option value="CityA">CompanyB</option>
+                                    <option value="CityA">CompanyC</option>
+                                </select>
+                            </p>
+                    </div>
+
+                    <div id="yesno">
+                        <label class="boldinfo">Recommended</label>
+                        <p>
+                            <input type="checkbox" id="recommendedChecker" name="recommendedChecker" checked></input>
+                        </p>
+                    </div>
+
+                    <div>
+                        <label class="boldinfo"> <a>Parcel Dimensions</a>
+                        </label>
+                        <p>
+                            <label class="textinput"> <a>Length (cm)</a>
+                                <input class="textruta2" id="length" name="length" type="number" placeholder="" size="30">
+                            </label>
+                            <label class="textinput"> <a>Width (cm)</a>
+                                <input class="textruta2" id="width" name="width" type="number" placeholder="" size="30">
+                            </label>
+                            <label class="textinput"> <a>Height (cm)</a>
+                                <input class="textruta2" id="height" name="height" type="number" placeholder="" size="30">
+                            </label>
+                        </p>
+                    </div>
+
+                    <div>
+                        <label class="boldinfo"> <a>Weight (kg)</a>
+                            <input class="textruta2" tabindex="11" id="weight" name="weight" type="number" placeholder="" size="30">
+                        </label>
+                    </div>
+
+                    <div>
+                        <button id="submiting" onClick="submit()">Submit Button</button>
+                    </div>
+                </div>
+
+                <div id=confirmpage style="display: none;">
+                    <div class="container">
+
+                        <section class="small-row small-col-1 large-row large-col-1 sectiontext">
+                            <h2> Confirmation page (Step 2 of 3)</h2>
+                            <h3>Suggested route</h3>
+                            <p> Text text text </p>
+
+                            <h3> Route in detal (start to finish) </h3>
+                            <p> Text text text </p>
+                        </section>
+
+                        <aside class="small-col-1 large-col-2">
+                            <h3 id="vadertable"> Cost </h3>
+                            <table class="table2">
+                                <thead>
+                                    <tr>
+                                        <th>KL </th>
+                                        <th> Temp </th>
+                                        <th> Himmel </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> 6 </td>
+                                        <td> 13 </td>
+
+                                        <td> Nearly clear sky </td>
+                                    </tr>
+                                    <tr>
+                                        <td> 12 </td>
+                                        <td> 15 </td>
+
+                                        <td> Nearly clear sky </td>
+                                    </tr>
+                                    <tr>
+                                        <td> 18 </td>
+                                        <td> 16 </td>
+                                        <td> Variable cloudiness </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </aside>
+
+
+                        <aside class="small-col-1 large-col-2">
+                            <div>
+                                <button onclick="next('endpage')" type=submit id="confirmroute" tabindex="19">Confirm order</button>
+                            </div>
+
+                            <div>
+                                <button onclick="next('routesubmit')" type=submit id="declineroute" tabindex="19">Decline order</button>
+                            </div>
+
+
+                        </aside>
+                        <footer class=" marginfooter small-col-1 large-row large-col-4">
+                        </footer>
+                    </div>
+
+                </div>
+
+                <div id=endpage style="display: none;">
+                    <div class="container">
+                
+                        <section class="small-row small-col-1 large-row large-col-1 sectiontext">
+                            <h2> Route confirmatied page (Step 3 of 3)</h2>
+                            <h3>Your route is confirmed and ordered</h3>
+                            <p> Text text text </p>
+                
+                            <h3> Route in detal (start to finish) </h3>
+                            <p> Text text text </p>
+                        </section>
+                
+                        <aside class="small-col-1 large-col-2">
+                            <h3 id="vadertable"> Cost </h3>
+                            <table class="table2">
+                                <thead>
+                                    <tr>
+                                        <th>KL </th>
+                                        <th> Temp </th>
+                                        <th> Himmel </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td> 6 </td>
+                                        <td> 13 </td>
+                
+                                        <td> Nearly clear sky </td>
+                                    </tr>
+                                    <tr>
+                                        <td> 12 </td>
+                                        <td> 15 </td>
+                
+                                        <td> Nearly clear sky </td>
+                                    </tr>
+                                    <tr>
+                                        <td> 18 </td>
+                                        <td> 16 </td>
+                                        <td> Variable cloudiness </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </aside>
+                
+                        
+                        <aside class="small-col-1 large-col-2">          
+                           <div>
+                                <button onclick="next('homepage')" type=submit id="homepagereturn" tabindex="19">Return to Homepage</button>
+                            </div>
+                
+                        </aside>
+                    <footer class=" marginfooter small-col-1 large-row large-col-4">
+                    </footer>
+                    </div>
+                </div>
+
+
+                <footer class=" marginfooter large-row large-col-4"></footer>
+        </div>
+        <script src="./scripts/script.js"></script>
+        <script src="./scripts/dataSubmitService.js"></script>
+</body>
+
 </html>
