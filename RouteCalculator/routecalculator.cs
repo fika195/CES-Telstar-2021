@@ -3,6 +3,10 @@ using RouteCalculatorCity;
 using RouteCalculatorRoad;
 using TLPD.RouteCalculator.vehicles;
 using RouteCalculatorRoute;
+using RouteCalculatorPackage;
+using RouteCalculatorCustomer;
+using System.IO;
+using System;
 
 namespace routecalculator
 {
@@ -16,21 +20,31 @@ namespace routecalculator
         double telstarLogicEarnings = -1;
         double totalPrice = -1;
         customer customer = null;
-        List<String> WaterCityNames = new List<String>().Add("St. Helena").Add("Kap Guardafui").Add("Amatave").add("De Kanariske Øer");
+        List<string> WaterCityNames = createWaterCities();
+
+       static private List<string> createWaterCities()
+        {
+            List<string> WaterCityNames = new List<string>();
+            WaterCityNames.Add("Amatave");
+            WaterCityNames.Add("De Kanariske Øer");
+            WaterCityNames.Add("St. Helena");
+            WaterCityNames.Add("Kap Guardafui");
+            return WaterCityNames;
+        }
 
         List<road> initializeMap(string filepath)
         {
             List<road> roadList = createRoadList(filepath);
 
-            List<roads> outgoingRoads = new List<roads>();
-            List<roads> ingoingRoads = new List<roads>();
-            nameofLastCity = "";
+            List<road> outgoingRoads = new List<road>();
+            List<road> ingoingRoads = new List<road>();
+            string nameofLastCity = "";
             city currentCity = null;
 
             List<city> cityList = new List<city>();
             foreach (road r in roadList)
             {
-                if (!cityList.Contains(r.getFromCity()))
+                if (!cityList.Contains(new city(r.getFromCity())))
                 {
                     cityList.Add(new city(r.getFromCity()));
                 }
@@ -41,9 +55,9 @@ namespace routecalculator
             {
                 foreach (road r in roadList)
                 {
-                    if (r.getFromCity() == c.getName())
+                    if (r.getFromCity().Equals(c.getName()))
                     {
-                        c.addRoadGoingOut(r);
+                        c.addRoadGoingout(r);
                     }
                     if (r.getToCity() == c.getName())
                     {
@@ -51,6 +65,7 @@ namespace routecalculator
                     }
                 }
             }
+            return roadList;
         }
 
         private List<road> createRoadList(string filepath)
@@ -59,7 +74,7 @@ namespace routecalculator
 
             using (var reader = new StreamReader(@"data\CES_Case_Logical_Datamodel.xlsx"))
             {
-                oldCityName = "";
+                string oldCityName = "";
 
                 List<string> fromList = new List<string>();
                 List<string> toList = new List<string>();
@@ -78,21 +93,21 @@ namespace routecalculator
                     string vehicleType = values[3];
                     PriceList.Add(values[4]);
 
-
-                    if (vehicleType = "Plane")
+                    vehicle currentvehicle = null;
+                    if (vehicleType.Equals("Plane"))
                     {
-                        plane vehicle = new plane();
+                        currentvehicle = new plane();
                     }
-                    if (vehicleType = "Boat")
+                    if (vehicleType.Equals("Boat"))
                     {
-                        boat vehicle = new boat();
+                        currentvehicle = new boat();
                     }
                     else
                     {
-                        car vehicle = new Car();
+                        currentvehicle = new car();
                     }
 
-                    roads.Add(new road(0, values[2], fromCity, toCity, vehicle));
+                    roads.Add(new road(0, Int32.Parse(values[2]), fromCity, toCity, currentvehicle));
                 }
             }
 
@@ -117,7 +132,7 @@ namespace routecalculator
             if (v.distance > u.distance + weight)
             {
                 v.distance = u.distance + weight;
-                v.prevous_city = u;
+                v.previousCity = u;
             }
         }
 
