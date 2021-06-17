@@ -3,13 +3,14 @@ using System.Collections.Generic;
 
 namespace RouteCalculatorCity
 {
-    class city
+    public class city
     {
         string name = null;
         List<road> roadsGoingOut = new List<road>();
         List<road> roadsGoingIn = new List<road>();
-        city previousCity = null; // used to tell where the vehicle moved from, to this city
-        double distance = -1; // distance from the start_city of a route
+        public city previousCity = null; // used to tell where the vehicle moved from, to this city
+        public double distance = -1; // distance from the start_city of a route
+       
 
 
         public city(string name, List<road>  roadsGoingOut, List<road>  roadsGoingIn)

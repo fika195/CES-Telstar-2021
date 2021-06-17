@@ -1,6 +1,6 @@
 namespace RouteCalculatorCustomer
 {
-    class customer
+    public class customer
     {
         private string name = null;
         private double discount = -1;

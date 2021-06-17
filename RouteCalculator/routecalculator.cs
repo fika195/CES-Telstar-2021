@@ -7,19 +7,22 @@ using RouteCalculatorPackage;
 using RouteCalculatorCustomer;
 using System.IO;
 using System;
+using TLPD.RouteCalculator;
 
-namespace routecalculator
+namespace TLPD.routecalculator
 {
-    class routecalculator
+    public class routecalculator
     {
         city startCity = null;
         city endCity = null;
-        List<city> map = new List<city>();
+        city[] map = new city[32]; // number of cities
         route optimalRoute = null;
         package packageToDeliver = null;
         double telstarLogicEarnings = -1;
         double totalPrice = -1;
         customer customer = null;
+        public double[][] cityMatrix = null;
+        public string[][] cityNameMatrix = null;
         List<string> WaterCityNames = createWaterCities();
 
        static private List<string> createWaterCities()
@@ -32,9 +35,14 @@ namespace routecalculator
             return WaterCityNames;
         }
 
-        List<road> initializeMap(string filepath)
+        public routecalculator(double price)
         {
-            List<road> roadList = createRoadList(filepath);
+            this.totalPrice = price;
+        }
+
+        private void initializeMap()
+        {
+            List<road> roadList = createRoadList();
 
             List<road> outgoingRoads = new List<road>();
             List<road> ingoingRoads = new List<road>();
@@ -48,27 +56,26 @@ namespace routecalculator
                 {
                     cityList.Add(new city(r.getFromCity()));
                 }
-             
             }
-
-                foreach (city c in cityList)
+            int i = 0;
+            int j = 0;
+            foreach (city c in cityList)
             {
                 foreach (road r in roadList)
                 {
                     if (r.getFromCity().Equals(c.getName()))
                     {
+                        cityMatrix[i][j] = r.getDuration();
+                        cityNameMatrix[i][j] = c.getName();
                         c.addRoadGoingout(r);
                     }
-                    if (r.getToCity() == c.getName())
-                    {
-                        c.addRoadGoingIn(r);
-                    }
+                    j++;
                 }
+                i++;
             }
-            return roadList;
         }
 
-        private List<road> createRoadList(string filepath)
+        private List<road> createRoadList()
         {
             List<road> roads = new List<road>();
 
@@ -117,7 +124,7 @@ namespace routecalculator
 
 
 
-        public static void InitializeSingleSource(city[] cities, city startCity)
+        public void InitializeSingleSource(city[] cities, city startCity)
         {
             foreach (city c in cities)
             {
@@ -127,7 +134,7 @@ namespace routecalculator
             startCity.distance = 0;
         }
 
-        public static void Relax(city u, city v, int weight)
+        public void Relax(city u, city v, double weight)
         {
             if (v.distance > u.distance + weight)
             {
@@ -137,58 +144,46 @@ namespace routecalculator
         }
 
 
-
-        public static List<city> ModifiedDijkstra(city[] cities, int[][] graph, city startCity)
+        public List<city> Dijkstra(city[] vertices, double[][] graph, int source)
         {
-            InitializeSingleSource(cities, startCity);
-            List<route> allPossibleRoutes = new List<route>();
+            InitializeSingleSource(vertices, vertices[source]);
+            List<city> result = new List<city>();
+            //adding all vertex to priority queue
+            PriorityQueue<city> queue = new PriorityQueue<city>(true);
+            for (int i = 0; i < vertices.Length; i++)
+                queue.Enqueue(Convert.ToInt32(vertices[i].distance), vertices[i]);
 
-
-
-            //adding all cities to priority queue
-            PriorityQueue.PriorityQueue<city> queue = new PriorityQueue.PriorityQueue<city>(true);
-            for (int i = 0; i < cities.Length; i++)
-                queue.Enqueue(cities[i].distance, cities[i]);
-
-            //traversing to all cities
+            //treversing to all vertices
             while (queue.Count > 0)
             {
+                        int i = 0;
                 var u = queue.Dequeue();
                 result.Add(u);
-                //again traversing to all cities
-                for (int v = 0; v < graph[Convert.ToInt32(u.Name)].Length; v++)
+                //again traversing to all vertices
+                for (int v = 0; v < graph[i].Length; v++)
                 {
-                    if (graph[Convert.ToInt32(u.Name)][v] > 0)
+                    if (graph[i][v] > 0)
                     {
-                        Relax(u, cities[v], graph[Convert.ToInt32(u.Name)][v]);
+                        Relax(u, vertices[v], graph[i][v]);
                         //updating priority value since distance is changed
-                        queue.UpdatePriority(cities[v], cities[v].D);
+                        queue.UpdatePriority(vertices[v], Convert.ToInt32(vertices[v].distance));
                     }
                 }
             }
             return result;
         }
 
-
-
-
-        private road getBestRoute(city currentCity, city TargetCity, route currentRoute, List<rout> allRoutes)
+        private int getindeces(string cityName)
         {
-           
-            int leastSegments = 9999; // magic = bad
-            foreach (road r in currentCity.getOutgoingRoads())
+            for (int i = 0;  i < 32; i++)
             {
-                if (r.getSegments() < leastSegments)
+                if (cityNameMatrix[i][0] == cityName)
                 {
-                    BestRoad = r;
-                    leastSegments = r.getSegments();
+                    return i;
                 }
             }
-            return BestRoad;
+            return -1;
         }
-        
-
-
 
 
         private void createMap(string filepath)
@@ -201,7 +196,47 @@ namespace routecalculator
             
         }
 
+        public void PrintPath(city u, city v, List<city> vertices)
+        {
+            if (v != u)
+            {
+                PrintPath(u, v.previousCity, vertices);
+                Console.WriteLine("city {0} weight: {1}", v.getName(), v.distance);
+            }
+            else
+                Console.WriteLine("Vertax {0} weight: {1}", v.getName(), v.distance);
+        }
 
+        public double runRouteCalc(string startCityName, string endCityName, double price, package packageToDeliver)
+        {
+            initializeMap();
 
+            int index = getindeces(startCityName);
+            if (index == -1)
+            {
+                return -1; // city does not exist
+            }
+
+            List<city> res = Dijkstra(this.map, cityMatrix, index);
+
+            city startresCity = null;
+            city endresCity = null;
+
+            foreach (city c in res)
+            {
+                if (c.getName() == startCityName)
+                {
+                    startresCity = c;
+                }
+                if (c.getName() == endCityName)
+                {
+                    endCity = c;
+                }
+            }
+
+            PrintPath(startresCity, endresCity, res);
+
+            return endCity.distance;
+        }
     }
 }

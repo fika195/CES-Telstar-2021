@@ -1,6 +1,6 @@
 namespace RouteCalculatorPackage
 {
-    class package
+    public class package
     {
         double length = -1;
         double height = -1;

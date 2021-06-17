@@ -3,7 +3,7 @@ using TLPD.RouteCalculator.vehicles;
 
 namespace RouteCalculatorRoad
 {
-    class road
+    public class road
     {
         private int id = -1;
         private int segments = -1;
@@ -82,6 +82,5 @@ namespace RouteCalculatorRoad
         {
             this.duration = duration;
         }
-
     }
 }

@@ -4,7 +4,7 @@ using RouteCalculatorRoad;
 
 namespace RouteCalculatorRoute
 {
-    class route
+    public class route
     {
         private List<road> roads = new List<road>();
         private double totalPrice = -1;
