@@ -1,6 +1,6 @@
 namespace TLPD.RouteCalculator.vehicles
 {
-    class vehicle
+    public class vehicle
     {
         private string vehicleType = null;
 
@@ -35,7 +35,7 @@ namespace TLPD.RouteCalculator.vehicles
         }
     }
 
-    class car : vehicle
+    public class car : vehicle
     {
         private string vehicleType = null;
 
