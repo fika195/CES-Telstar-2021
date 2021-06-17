@@ -1,4 +1,4 @@
-namespace RouteCalculatorVehicles
+namespace TLPD.RouteCalculator.vehicles
 {
     class Vehicle
     {

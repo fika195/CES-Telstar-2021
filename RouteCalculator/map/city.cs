@@ -8,7 +8,7 @@ namespace RouteCalculatorCity
         private string name = null;
         private List<Road> roadsGoingOut = new List<Road>();
         private List<Road> roadsGoingIn = new List<Road>();
-
+        
         public city(string name, List<Road>  roadsGoingOut, List<Road>  roadsGoingIn)
         {
             this.name = name;

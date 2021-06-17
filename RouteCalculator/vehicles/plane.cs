@@ -1,4 +1,4 @@
-namespace RouteCalculatorVehicles
+namespace TLPD.RouteCalculator.vehicles
 {
     class plane : vehicle
     {
@@ -16,7 +16,7 @@ namespace RouteCalculatorVehicles
 
         private void setVehicleType(string vehicleType)
         {
-            return this.vehicleType;
+            this.vehicleType = vehicleType;
         }
     }
 }
