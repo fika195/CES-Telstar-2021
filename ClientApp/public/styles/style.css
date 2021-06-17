@@ -1,0 +1,377 @@
+/*  Sätter ett standardvärde för typsnitt och */ 
+body {
+    font-size: 14px;
+    background-color: white;
+}
+
+/* Här och några kodblock fram sätts värden för typsnitt av rubriker, rubrikstorlekar, olika rubrikers marginaler osv  */ 
+h1,h2,h3,h4 {
+    font-family: 'Fjalla One', sans-serif, arial, helvetica;
+    text-align: justify;
+    padding-bottom: 15px;
+}
+
+p,li {
+    font-family: arial, helvetica, sans-serif;
+    text-align: justify;
+    padding-bottom: 15px;
+}
+
+h1 {
+    font-size: 300%;
+    margin-top: 100px;
+    padding-right: 15px;
+    padding-top: 10px;
+    margin-left: -10px;
+    width: 300px;
+    opacity: 0.70;
+    text-align: right;
+}
+
+h2 {
+    font-size: 200%;
+    text-align: center;
+}
+
+h3 {
+    padding-bottom: 5px;
+    font-size: 150%;
+}
+
+h4 {
+    font-size: 100%;
+    font-style: italic;
+    padding-bottom: 5px;
+}
+
+
+/* lite standardvärden som ställs in  */ 
+header, nav, section,aside,footer {
+
+    font-family: arial, helvetica, sans-serif;
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+
+}
+
+/*  Sjävla toppen av hemsidan där sidrubrik ("Djupvik") samt bilden på solnedgången */ 
+header {
+    height: 261px;
+    width: 1200px;
+    background-size: cover;
+    background-color: #aef359;
+    background-image: url("../images/header.png")
+}
+
+/*  design av själva navigationsfältet. Här anpassas hur marginaler osv i den ska vara. Under nav finns även nav a, hover. Den går mer specifikt in på hur de olika alternativen ska se ut och fungera */ 
+nav {
+    text-align: center;
+    margin-bottom: 45px;
+    background:  #3ded97;
+    padding: 5px 5px 5px 90px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/*  Stil för sections som innehåller en stor del av hemsidans innehåll. Sections storlek och textens marginaler avgörs här*/ 
+section {
+    min-height: 300px;
+    height: auto;
+    width: 500px;
+    padding: 10px 30px;
+    margin-left: 180px;
+    background: white;
+}
+
+
+/* stil for inputcontainer */
+.inputcontainer{
+}
+
+/* Stilsättning av aside. Samma som för section fast anpassat för aside.   */ 
+aside {
+    background: white;
+    height: auto;
+    padding: 10px 10px;
+    min-height: 130px;
+}
+
+/* stil för footern som finns i botten av varje sida.  */ 
+footer {
+    height: 45px;
+    padding-top: 15px;
+    text-align-last: center;
+    background: white;
+    font-weight: bold;
+}
+
+/* stil för olika bilder på hemsidan  */ 
+.bilder {
+    width: 300px;
+    height: auto;
+    padding-bottom: 10px;
+}
+
+#startbild {
+    width: 90px;
+    height: 90px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    float: left;
+}
+
+.infobild {
+    width: 300px;
+    max-height: 160px;
+    padding-left: 50px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+}
+
+/*  stilsättning av formuläret  */
+
+.textinput {
+    display: flex;
+    margin: 20px;
+}
+
+.buttoninput {
+    margin: 10px;
+    font-weight: 100;
+}
+
+.textruta {
+    margin-left: 40px;
+}
+
+.textruta2 {
+    margin-left: 100px;
+}
+
+.textruta3 {
+    margin-left: 90px;
+}
+
+#formz {
+    margin-left: 350px;
+    min-height: 300px;
+    height: 350px;
+    margin-bottom: 100px;
+    font-size: 16px;
+}
+
+#routesubmit {
+}
+
+#yesno{
+  display: inline-block;
+  padding:20px;
+}
+
+  
+
+#submiting {
+    display: flex;
+    text-align: right;
+    margin: 35px auto 8px;
+    padding: 15px 130px;
+    background-color: white;
+    border: 3px solid black;
+    color: black;
+    font-size: 18px;
+}
+
+#confirmroute {
+    display: flex;
+    text-align: center;
+    margin: 1px auto 1px;
+    padding: 15px 50px;
+    background-color: white;
+    border: 3px solid black;
+    color: black;
+    font-size: 18px;
+}
+
+#declineroute {
+    display: flex;
+    text-align: center;
+    margin: 5px auto 8px;
+    padding: 15px 15px;
+    font-size: 14spx;
+    border: 1px solid white;
+    background-color: white;
+    text-decoration: underline;
+
+}
+
+
+
+#homepagereturn {
+    display: flex;
+    text-align: center;
+    margin: 1px auto 1px;
+    padding: 15px 50px;
+    background-color: white;
+    border: 3px solid black;
+    color: black;
+    font-size: 18px;
+}
+
+/*  övrig stilsättning   */
+.special {
+    text-align: left;
+}
+
+#vadertable {
+    margin-top: 10px;
+}
+
+.startheight {
+    min-height: 780px;
+}
+
+/* GRID SYSTEM */
+
+
+.container {
+    overflow: hidden;
+    background: #aef359
+}
+
+.row {
+    clear: both;
+}
+
+.hide {
+    display: none;
+}
+
+
+
+
+/* LARGE detta är media quiery för skärmstorlekar över 800px i bredd.  */
+@media (min-width: 801px) {    
+    .container {
+        overflow: hidden;
+        width: 100%;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+    
+    /*  col1, col2,col3,col4,col5 är de olika kolumnerna som i sin tur finns innanför row. De får i tillsammans (ex. col1 och col2 tillsammans) max komma upp i 100% (hela raden)  */
+    .large-col-1 {
+        width: 40%;
+        margin-left: 150px;
+    }
+    
+    .large-col-2 {
+        width: 27%;
+    }
+    
+    .large-col-3 {
+        width: 69%;
+        margin-left: 150px;
+    }
+    
+    .large-col-4 {
+        width: 100%;
+        
+    }
+    
+    .large-col-5 {
+        margin-left: 350px;
+    }
+    
+    .large-col-6 {
+     width: 69%;
+    }
+    
+    .large-hide {
+        display: none;
+    }
+    
+    .large-row {
+        clear: both;
+    }
+    
+    nav a {
+        color: RGB(64,64,64);
+        text-decoration: none;
+        padding: 10px 35px 10px 0px;
+        float: center;
+        font-weight: bold;
+        font-size: 30px;
+    }
+    
+    .marginfooter {
+        margin-top: 300px;
+    }
+    
+    #konrad {
+        margin-left: 160px;
+        margin-bottom: 10px;
+    }
+    
+    #konradtext {
+        margin-left: 260px;
+        font-style: italic;
+    }
+    #active{
+        border-bottom: 1px solid #aef359;
+    }
+    
+
+
+
+
+
+
+
+
+
+       
+    /* Stil för de olika tabeller som finns på hemsidan   */
+    table {
+    color: black;
+    border-collapse: collapse;
+    border-spacing: 0;
+    
+    }
+    
+    tr:nth-of-type(odd) {
+        background: #eee;
+    }
+    
+    th {
+    font-weight: bold;
+    background: grey;
+    }
+    
+    td,
+    th {
+        padding: 6px;
+        border: 1px solid #ccc;
+        text-align: left;
+    }
+
+    .table1 {
+    width: 400px;
+    }
+
+    .table2 {
+    width: 300px;
+    }
+
+    .table3 {
+    width: 750px;
+    }
+
+
+    /*boldfont for titels in info*/
+    .boldinfo {
+        font-weight: bold; 
+    }
+}
