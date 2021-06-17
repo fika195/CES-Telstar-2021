@@ -3,7 +3,7 @@ namespace RouteCalculatorCustomer
     class customer
     {
         private string name = null;
-        private double discount = null;
+        private double discount = -1;
 
         public customer(string name, double discount)
         {
@@ -16,7 +16,7 @@ namespace RouteCalculatorCustomer
             return this.name;
         }
 
-        public string getdiscount()
+        public double getdiscount()
         {
             return this.discount;
         }

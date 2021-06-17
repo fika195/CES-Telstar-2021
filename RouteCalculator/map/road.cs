@@ -7,15 +7,16 @@ namespace RouteCalculatorRoad
     {
         private int id = -1;
         private int segments = -1;
-        private city fromCity = null;
-        private city toCity = null;
+        private string fromCity = "";
+        private string toCity = "";
         private vehicle roadType = null;
+        private car fisk = new car();
         private double price = -1;
         private double duration = -1;
 
 
 
-        public road(int id, int segments, city fromCity, city toCity, vehicle roadType)
+        public road(int id, int segments, string fromCity, string toCity, vehicle roadType)
         {
 
             this.id = id;
@@ -23,9 +24,10 @@ namespace RouteCalculatorRoad
             this.fromCity = fromCity;
             this.toCity = toCity;
             this.roadType = roadType;
+
         }
 
-        public road(int id, int segments, double price, city fromCity, city toCity, vehicle roadType)
+        public road(int id, int segments, double price, string fromCity, string toCity, vehicle roadType)
         {
 
             this.id = id;
@@ -36,12 +38,12 @@ namespace RouteCalculatorRoad
             this.roadType = roadType;
         }
 
-        public city getFromCity()
+        public string getFromCity()
         {
             return this.fromCity;
         }
 
-        public city getToCity()
+        public string getToCity()
         {
             return this.toCity;
         }

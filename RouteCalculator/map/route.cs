@@ -52,5 +52,10 @@ namespace RouteCalculatorRoute
             this.totalTelstarEarnings = totalTelstarEarnings;
         }
 
+        public void addRoad(road newRoad)
+        {
+            this.roads.Add(newRoad);
+        }
+
     }
 }
