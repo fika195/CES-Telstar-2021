@@ -1,4 +1,4 @@
-namespace RouteCalculator
+namespace RouteCalculatorVehicles
 {
     class car : vehicle
     {
