@@ -1,18 +1,17 @@
-using System.Collection.Generic;
 using RouteCalculatorCity;
-using RouteCalculatorVehicles;
+using TLPD.RouteCalculator.vehicles;
 
 namespace RouteCalculatorRoad
 {
-    class Road
+    class road
     {
-        private int id = null;
-        private int segments = null;
+        private int id = -1;
+        private int segments = -1;
         private city fromCity = null;
         private city toCity = null;
         private vehicle roadType = null;
-        private double price = null;
-        private double duration = null;
+        private double price = -1;
+        private double duration = -1;
 
 
 
@@ -37,12 +36,12 @@ namespace RouteCalculatorRoad
             this.roadType = roadType;
         }
 
-        public string getFromCity()
+        public city getFromCity()
         {
             return this.fromCity;
         }
 
-        public string getToCity()
+        public city getToCity()
         {
             return this.toCity;
         }

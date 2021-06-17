@@ -1,34 +1,35 @@
 using RouteCalculatorRoad;
-using System.Collection.Generic;
+using System.Collections.Generic;
 
 namespace RouteCalculatorCity
 {
     class city
     {
         private string name = null;
-        private List<Road> roadsGoingOut = new List<Road>();
-        private List<Road> roadsGoingIn = new List<Road>();
-        
-        public city(string name, List<Road>  roadsGoingOut, List<Road>  roadsGoingIn)
+        private List<road> roadsGoingOut = new List<road>();
+        private List<road> roadsGoingIn = new List<road>();
+        List<int> primeNumbers = new List<int>();
+
+        public city(string name, List<road>  roadsGoingOut, List<road>  roadsGoingIn)
         {
             this.name = name;
             this.roadsGoingOut = roadsGoingOut;
             this.roadsGoingOut = roadsGoingIn;
         }
 
-        public string getRoadsGoingOut()
+        public List<road> getRoadsGoingOut()
         {
             return this.roadsGoingOut;
         }
 
-        public string getRoadsGoingIn()
+        public List<road> getRoadsGoingIn()
         {
             return this.roadsGoingIn;
         }
 
         public string getName()
         {
-            return this.roadsGoingIn;
+            return this.name;
         }
     }
 }

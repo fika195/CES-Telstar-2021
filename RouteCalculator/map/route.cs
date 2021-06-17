@@ -1,4 +1,4 @@
-using System.Collection.Generic;
+using System.Collections.Generic;
 using RouteCalculatorCity;
 using RouteCalculatorRoad;
 
@@ -6,23 +6,23 @@ namespace RouteCalculatorRoute
 {
     class route
     {
-        private List<Road> roads = new List<Road>();
-        private double totalPrice = null;
-        private String Duration = null;
-        private double totalTelstarEarnings = null;
+        private List<road> roads = new List<road>();
+        private double totalPrice = -1;
+        private string duration = null;
+        private double totalTelstarEarnings = -1;
 
 
-        public route(List<Road> roads)
+        public route(List<road> roads)
         {
             this.roads = roads;
         }
 
-        public List<Road> getRoads()
+        public List<road> getRoads()
         {
             return this.roads;
         }
 
-        public String getDuration()
+        public string getDuration()
         {
             return this.duration;
         }
@@ -32,22 +32,22 @@ namespace RouteCalculatorRoute
             this.duration = duration;
         }
 
-        public String getTotalPrice()
+        public string getTotalPrice()
         {
             return this.duration;
         }
 
-        public void setTotalPrice(string totalPrice)
+        public void setTotalPrice(double totalPrice)
         {
             this.totalPrice = totalPrice;
         }
 
-        public String getTelstarEarnings()
+        public double getTelstarEarnings()
         {
-            return this.duration;
+            return this.totalTelstarEarnings;
         }
 
-        public void setTotalTelstarEarnings(string totalTelstarEarnings)
+        public void setTotalTelstarEarnings(double totalTelstarEarnings)
         {
             this.totalTelstarEarnings = totalTelstarEarnings;
         }

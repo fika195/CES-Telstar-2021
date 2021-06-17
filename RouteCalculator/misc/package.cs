@@ -2,11 +2,11 @@ namespace RouteCalculatorPackage
 {
     class package
     {
-        double length = null;
-        double height = null;
-        double width = null;
-        double weight = null;
-        bool reccommended = null;
+        double length = -1;
+        double height = -1;
+        double width = -1;
+        double weight = -1;
+        bool reccommended = false;
 
 
         public package(double length, double height, double width, double weight, bool reccommended)
@@ -33,7 +33,7 @@ namespace RouteCalculatorPackage
             return this.weight;
         }
 
-        public double getReccommended()
+        public bool getReccommended()
         {
             return this.reccommended;
         }
