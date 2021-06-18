@@ -79,7 +79,7 @@ namespace TLPD.routecalculator
         {
             List<road> roads = new List<road>();
 
-            using (var reader = new StreamReader(@"data\CES_Case_Logical_Datamodel.xlsx"))
+            using (var reader = new StreamReader(@"C:\Users\FIKA\source\repos\CES-Telstar-2021\RouteCalculator\data\CES_Case_Logical_Datamodel.xlsx"))
             {
                 string oldCityName = "";
 
@@ -211,6 +211,11 @@ namespace TLPD.routecalculator
         {
             initializeMap();
 
+            if (WaterCityNames.Contains(startCityName) || WaterCityNames.Contains(endCityName))
+            {
+                throw new ArgumentException("Recommended package can't be delivered");
+            }
+
             int index = getindeces(startCityName);
             if (index == -1)
             {
@@ -236,7 +241,9 @@ namespace TLPD.routecalculator
 
             PrintPath(startresCity, endresCity, res);
 
-            return endCity.distance;
+            double finalPrie = endCity.distance * price;
+
+            return finalPrie;
         }
     }
 }
