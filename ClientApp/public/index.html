@@ -19,11 +19,9 @@
         <nav class="large-nav large-row large-col-4">
             <a id="active" href="index.html" tabindex="1"> Homepage (Route Calculation) </a>
         </nav>
-
-
-
-
-        <div id=main_place>
+        
+    
+    <div id=main_place>
             main
         </div>
 
@@ -98,69 +96,71 @@
                     </div>
                 </div>
 
-                <div id=confirmpage style="display: none;">
-                    <div class="container">
+            <div id=confirmpage style="display: none;">
+                <div class="container">
 
-                        <section class="small-row small-col-1 large-row large-col-1 sectiontext">
-                            <h2> Confirmation page (Step 2 of 3)</h2>
-                            <h3>Suggested route</h3>
-                            <p> Text text text </p>
+                    <section class="small-row small-col-1 large-row large-col-1 sectiontext">
+                        <h2> Confirmation page (Step 2 of 3)</h2>
+                        <h3>Suggested route</h3>
+                        <p> Text text text </p>
 
-                            <h3> Route in detal (start to finish) </h3>
-                            <p> Text text text </p>
-                        </section>
+                        <h3> Route in detal (start to finish) </h3>
+                        <p> Text text text </p>
+                    </section>
 
-                        <aside class="small-col-1 large-col-2">
-                            <h3 id="vadertable"> Cost </h3>
-                            <table class="table2">
-                                <thead>
-                                    <tr>
-                                        <th>KL </th>
-                                        <th> Temp </th>
-                                        <th> Himmel </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td> 6 </td>
-                                        <td> 13 </td>
+                    <aside class="small-col-1 large-col-2">
+                        <h3 id="vadertable"> Cost </h3>
+                        <table class="table2">
+                            <thead>
+                            <tr>
+                                <th>KL </th>
+                                <th> Temp </th>
+                                <th> Himmel </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td> 6 </td>
+                                <td> 13 </td>
 
-                                        <td> Nearly clear sky </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 12 </td>
-                                        <td> 15 </td>
+                                <td> Nearly clear sky </td>
+                            </tr>
+                            <tr>
+                                <td> 12 </td>
+                                <td> 15 </td>
 
-                                        <td> Nearly clear sky </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 18 </td>
-                                        <td> 16 </td>
-                                        <td> Variable cloudiness </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </aside>
-
-
-                        <aside class="small-col-1 large-col-2">
-                            <div>
-                                <button onclick="next('endpage')" type=submit id="confirmroute" tabindex="19">Confirm order</button>
-                            </div>
-
-                            <div>
-                                <button onclick="next('routesubmit')" type=submit id="declineroute" tabindex="19">Decline order</button>
-                            </div>
+                                <td> Nearly clear sky </td>
+                            </tr>
+                            <tr>
+                                <td> 18 </td>
+                                <td> 16 </td>
+                                <td> Variable cloudiness </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </aside>
 
 
-                        </aside>
-                        <footer class=" marginfooter small-col-1 large-row large-col-4">
-                        </footer>
-                    </div>
+                    <aside class="small-col-1 large-col-2">
+                        <div>
+                            <button onclick="next('endpage')" type=submit id="confirmroute" tabindex="19">Confirm order</button>
+                        </div>
 
+                        <div>
+                            <button onclick="next('routesubmit')" type=submit id="declineroute" tabindex="19">Decline order</button>
+                        </div>
+
+
+                    </aside>
+                    <footer class=" marginfooter small-col-1 large-row large-col-4">
+                    </footer>
                 </div>
 
-                <div id=endpage style="display: none;">
+            </div>
+            
+            
+
+            <div id=endpage style="display: none;">
                     <div class="container">
                 
                         <section class="small-row small-col-1 large-row large-col-1 sectiontext">
@@ -211,7 +211,7 @@
                             </div>
                 
                         </aside>
-                    <footer class=" marginfooter small-col-1 large-row large-col-4">
+                    <footer class=" marginfooter large-row large-col-4">
                     </footer>
                     </div>
                 </div>
@@ -222,5 +222,4 @@
         <script src="./scripts/script.js"></script>
         <script src="./scripts/dataSubmitService.js"></script>
 </body>
-
 </html>
