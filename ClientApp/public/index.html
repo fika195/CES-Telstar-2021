@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!-- doctype är en instruktion för webläsaren om vilken version av html koden är skriven i. -->
 <html lang="sv">
 
@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body onload="next('homepage')">
+<body onload ="next('homepage')">
     <div class="container">
         <header class="large-row large-col-4">
             <h1></h1>
@@ -19,207 +19,291 @@
         <nav class="large-nav large-row large-col-4">
             <a id="active" href="index.html" tabindex="1"> Homepage (Route Calculation) </a>
         </nav>
+
+
+
+
+<div id=main_place>
+    main
+  </div>
+  
+
+  <div id=homepage style="display: none;">
+    <section class="small-row small-col-1 large-row large-col-5 sectiontext small-form hej">
+        <h2> Route Calculation (step 1 of 3)</h2>
+            
         
-    
-    <div id=main_place>
-            main
-        </div>
+        <div id="routesubmit">
+                <div>
+                    <label class="boldinfo"><a>From</a>
+                    <p>
+                    <select id="from" name="from" required>
+                        <option value="CityA">Tunis</option>
+                        <option value="CityA">Zanzibar</option>
+                        <option value="CityA">Addis Abeba</option>
+                        <option value="CityA">Wadai</option>
+                        <option value="CityA">Kapstaden</option>
+                    <option value="CityA">Luanda</option>
+                    <option value="CityA">Congo</option>
+                    <option value="CityA">Wadai</option>
+                    <option value="CityA">Darfur</option>
+                    <option value="CityA">Omdurman</option>
+                    <option value="CityA">Tripoli</option>
 
+                    <option value="CityA">                    Kap St. Marie</option>
+                    <option value="CityA">Marrakesh</option>
+                    <option value="CityA">Mocambique
+                    </option>
+                    <option value="CityA">Omdurman</option>
+                    <option value="CityA">Sahara</option>
+                    <option value="CityA">
+                        Sierra Leone</option>
+                    <option value="CityA">Slavekysten</option>
+                    <option value="CityA">St. Helena</option>
+                    <option value="CityA">Suakin</option>
+                    <option value="CityA">Tanger</option>
+                    <option value="CityA">Timbuktu</option>
+                    </select>
+                    </p>
+                     <label class="boldinfo"><a>Destination</a>
+                    <p>
+                    <select id="destination" name="destination" required>
+                        <option value="CityA">Darfur</option>
+                        <option value="CityA">Omdurman</option>
+                        <option value="CityA">Tripoli</option>
+                        <option value="CityA">Tunis</option>
+                        <option value="CityA">Zanzibar</option>
+                    <option value="CityA">Luanda</option>
+                    <option value="CityA">Congo</option>
+                    <option value="CityA">Wadai</option>
 
-        <div id=homepage style="display: none;">
-            <section class="small-row small-col-1 large-row large-col-5 sectiontext small-form">
-                <h2> Route Calculation (step 1 of 3)</h2>
-
-
-                <div id="routesubmit">
-                    <div>
-                        <label class="boldinfo"><a>From</a>
-                            <p>
-                                <select id="from" name="from" required>
-                                    <option value="CityA">CityA</option>
-                                    <option value="CityA">CityB</option>
-                                    <option value="CityA">CityC</option>
-                                </select>
-                            </p>
-                            <label class="boldinfo"><a>Destination</a>
-                                <p>
-                                    <select id="destination" name="destination" required>
-                                        <option value="CityA">CityA</option>
-                                        <option value="CityA">CityB</option>
-                                        <option value="CityA">CityC</option>
-                                    </select>
-                                </p>
-                    </div>
-
-                    <div id="companysubmit">
-                        <label class="boldinfo"><a>Company</a>
-                            <p>
-                                <select id="company" name="company" required>
-                                    <option value="CityA">CompanyA</option>
-                                    <option value="CityA">CompanyB</option>
-                                    <option value="CityA">CompanyC</option>
-                                </select>
-                            </p>
-                    </div>
-
-                    <div id="yesno">
-                        <label class="boldinfo">Recommended</label>
-                        <p>
-                            <input type="checkbox" id="recommendedChecker" name="recommendedChecker" checked></input>
-                        </p>
-                    </div>
-
-                    <div>
-                        <label class="boldinfo"> <a>Parcel Dimensions</a>
-                        </label>
-                        <p>
-                            <label class="textinput"> <a>Length (cm)</a>
-                                <input class="textruta2" id="length" name="length" type="number" placeholder="" size="30">
-                            </label>
-                            <label class="textinput"> <a>Width (cm)</a>
-                                <input class="textruta2" id="width" name="width" type="number" placeholder="" size="30">
-                            </label>
-                            <label class="textinput"> <a>Height (cm)</a>
-                                <input class="textruta2" id="height" name="height" type="number" placeholder="" size="30">
-                            </label>
-                        </p>
-                    </div>
-
-                    <div>
-                        <label class="boldinfo"> <a>Weight (kg)</a>
-                            <input class="textruta2" tabindex="11" id="weight" name="weight" type="number" placeholder="" size="30">
-                        </label>
-                    </div>
-
-                    <div>
-                        <button id="submiting" onClick="submit()">Submit Button</button>
-                    </div>
+                    <option value="CityA">Addis Abeba</option>
+                    <option value="CityA">Wadai</option>
+                    <option value="CityA">Kapstaden</option>
+                    <option value="CityA">                    Kap St. Marie</option>
+                    <option value="CityA">Marrakesh</option>
+                    <option value="CityA">Mocambique
+                    </option>
+                    <option value="CityA">Omdurman</option>
+                    <option value="CityA">Sahara</option>
+                    <option value="CityA">
+                        Sierra Leone</option>
+                    <option value="CityA">Slavekysten</option>
+                    <option value="CityA">St. Helena</option>
+                    <option value="CityA">Suakin</option>
+                    <option value="CityA">Tanger</option>
+                    <option value="CityA">Timbuktu</option>
+                    </select>
+                    </p>
                 </div>
 
-            <div id=confirmpage style="display: none;">
-                <div class="container">
-
-                    <section class="small-row small-col-1 large-row large-col-1 sectiontext">
-                        <h2> Confirmation page (Step 2 of 3)</h2>
-                        <h3>Suggested route</h3>
-                        <p> Text text text </p>
-
-                        <h3> Route in detal (start to finish) </h3>
-                        <p> Text text text </p>
-                    </section>
-
-                    <aside class="small-col-1 large-col-2">
-                        <h3 id="vadertable"> Cost </h3>
-                        <table class="table2">
-                            <thead>
-                            <tr>
-                                <th>KL </th>
-                                <th> Temp </th>
-                                <th> Himmel </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td> 6 </td>
-                                <td> 13 </td>
-
-                                <td> Nearly clear sky </td>
-                            </tr>
-                            <tr>
-                                <td> 12 </td>
-                                <td> 15 </td>
-
-                                <td> Nearly clear sky </td>
-                            </tr>
-                            <tr>
-                                <td> 18 </td>
-                                <td> 16 </td>
-                                <td> Variable cloudiness </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </aside>
-
-
-                    <aside class="small-col-1 large-col-2">
-                        <div>
-                            <button onclick="next('endpage')" type=submit id="confirmroute" tabindex="19">Confirm order</button>
-                        </div>
-
-                        <div>
-                            <button onclick="next('routesubmit')" type=submit id="declineroute" tabindex="19">Decline order</button>
-                        </div>
-
-
-                    </aside>
-                    <footer class=" marginfooter small-col-1 large-row large-col-4">
-                    </footer>
+                <div id="company">             
+                    <label class="boldinfo"><a>Company</a>
+                    <p>
+                    <select id="company" name="company" required>
+                    <option value="CityA">Føtex</option>
+                    <option value="CityA">Lidl</option>
+                    <option value="CityA">Netto</option>
+                    <option value="CityA">Irma</option>
+                    <option value="CityA">Aldi</option>
+                    <option value="CityA">Other company</option>
+                    </select>
+                    </p>
                 </div>
 
+                <div id="yesno">
+                    <label class="boldinfo">Recommended</label>
+                    <p>
+                    <input type="radio" name="yes_no" checked>Yes</input>
+                    <input type="radio" name="yes_no">No</input>
+                    </p>
+                </div>
+
+                <div>
+                    <label class="boldinfo"> <a>Parcel Dimensions</a>
+                    </label>
+                    <p>
+                    <label class="textinput"> <a>Length (cm)</a>
+                        <input class="textruta2" name="length" type="number" placeholder="" size="30">
+                    </label>
+                    <label class="textinput"> <a>Width  (cm )</a>
+                        <input class="textruta2" name="width" type="number" placeholder="" size="30">
+                    </label>
+                    <label class="textinput"> <a>Height (cm)</a>
+                        <input class="textruta2" name="width" type="number" placeholder="" size="30">
+                    </label>
+                    <label class="textinput"> <a>Weight (kg)</a>
+                        <input class="textruta2" name="width" type="number" placeholder="" size="30">
+                    </label>
+                     </p>
+                </div>
+            <div>
+                <button id="submiting" onClick ="next('confirmpage');">Submit Button</button>
             </div>
             
-            
-
-            <div id=endpage style="display: none;">
-                    <div class="container">
-                
-                        <section class="small-row small-col-1 large-row large-col-1 sectiontext">
-                            <h2> Route confirmatied page (Step 3 of 3)</h2>
-                            <h3>Your route is confirmed and ordered</h3>
-                            <p> Text text text </p>
-                
-                            <h3> Route in detal (start to finish) </h3>
-                            <p> Text text text </p>
-                        </section>
-                
-                        <aside class="small-col-1 large-col-2">
-                            <h3 id="vadertable"> Cost </h3>
-                            <table class="table2">
-                                <thead>
-                                    <tr>
-                                        <th>KL </th>
-                                        <th> Temp </th>
-                                        <th> Himmel </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td> 6 </td>
-                                        <td> 13 </td>
-                
-                                        <td> Nearly clear sky </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 12 </td>
-                                        <td> 15 </td>
-                
-                                        <td> Nearly clear sky </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 18 </td>
-                                        <td> 16 </td>
-                                        <td> Variable cloudiness </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </aside>
-                
-                        
-                        <aside class="small-col-1 large-col-2">          
-                           <div>
-                                <button onclick="next('homepage')" type=submit id="homepagereturn" tabindex="19">Return to Homepage</button>
-                            </div>
-                
-                        </aside>
-                    <footer class=" marginfooter large-row large-col-4">
-                    </footer>
-                    </div>
-                </div>
+  </div>
+  
+  <div id=confirmpage style="display: none;">
+    <section class="small-row small-col-1 large-row large-col-5 sectiontext small-form">
+        <h2> Confirmation page (Step 2 of 3)</h2>
 
 
-                <footer class=" marginfooter large-row large-col-4"></footer>
+        <h3>Suggested route</h3>
+        <p> Luanda - Wadai </p>
+
+        <h3> Time of route </h3>
+        <p> 36 hours </p>
+
+        <h3> Recommended </h3>
+        <p> Yes </p>
+
+        <h3> Parcel Information </h3>
+        <p> Length: 40 cm </p>
+        <p> Width: 20 cm</p>
+        <p> Height: 10 cm </p>
+        <p> Weight: 2 kg </p>
+
+        <h3> Route in detail (start to finish) </h3>
+        <p> 1. Luanda</p>
+        <p> 2. Congo</p>
+        <p> 3. Wadai </p>
+
+        
+        <h3 id="vadertable"> Cost </h3>
+        <table class="table2">
+            <thead>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Route cost </td>
+                    <td> 180 </td>
+                    <td> DKK </td>
+                </tr>
+                <tr>
+                    <td> Rec. cost </td>
+                    <td> 100 </td>
+                    <td> DKK </td>
+                </tr>
+                <tr>
+                    <td> Subtotal </td>
+                    <td> 280 </td>
+
+                    <td> DKK </td>
+                </tr>
+                <tr>
+                    <td> Discount </td>
+                    <td> 50 </td>
+                    <td> DKK </td>
+                </tr>
+                <tr id="boldi">
+                    
+                    <td> Grand Total </td>
+                    <td> 230 </td>
+                    <td> DKK </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <button onclick="next('endpage')" type=submit id="confirmroute" tabindex="19">Confirm order</button>
         </div>
-        <script src="./scripts/script.js"></script>
-        <script src="./scripts/dataSubmitService.js"></script>
+
+        <div>
+            <button onclick="next('homepage')" type=submit id="declineroute" tabindex="19">Decline order</button>
+        </div>
+    </section>
+     
+
+
+
+    
+  </div>
+  
+  <div id=endpage style="display: none;">
+    <section class="small-row small-col-1 large-row large-col-5 sectiontext small-form">
+        <h2> Route confirmatied page (Step 3 of 3)</h2>
+        <h2>Your route is confirmed and ordered</h2>
+        
+        
+        <h3>Suggested route</h3>
+        <p> Luanda - Wadai </p>
+
+        <h3> Time of route </h3>
+        <p> 36 hours </p>
+
+        <h3> Recommended </h3>
+        <p> Yes </p>
+
+        <h3> Parcel Information </h3>
+        <p> Length: 40 cm </p>
+        <p> Width: 20 cm</p>
+        <p> Height: 10 cm </p>
+        <p> Weight: 2 kg </p>
+
+        <h3> Route in detail (start to finish) </h3>
+        <p> 1. Luanda</p>
+        <p> 2. Congo</p>
+        <p> 3. Wadai </p>
+
+        
+        <h3 id="vadertable"> Cost </h3>
+        <table class="table2">
+            <thead>
+                <tr>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> Route cost </td>
+                    <td> 180 </td>
+                    <td> DKK </td>
+                </tr>
+                <tr>
+                    <td> Rec. cost </td>
+                    <td> 100 </td>
+                    <td> DKK </td>
+                </tr>
+                <tr>
+                    <td> Subtotal </td>
+                    <td> 280 </td>
+
+                    <td> DKK </td>
+                </tr>
+                <tr>
+                    <td> Discount </td>
+                    <td> 50 </td>
+                    <td> DKK </td>
+                </tr>
+                <tr id="boldi">
+                    
+                    <td> Grand Total </td>
+                    <td> 230 </td>
+                    <td> DKK </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>  </p>
+        <p>  </p>
+        <div>
+            <button onclick="next('homepage')" type=submit id="homepagereturn" tabindex="19">Return to Homepage</button>
+        </div>
+    </section>
+
+
+
+    </aside>
+  </div>
+  
+
+    <footer class=" marginfooter large-row large-col-4"></footer>
+</div>
+    <script>
+        
+        function next(param_div_id) {
+            document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
+        }
+
+    </script>
 </body>
 </html>

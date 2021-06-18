@@ -2,6 +2,8 @@
 body {
     font-size: 14px;
     background-color: white;
+    
+    
 }
 
 /* Här och några kodblock fram sätts värden för typsnitt av rubriker, rubrikstorlekar, olika rubrikers marginaler osv  */ 
@@ -31,11 +33,13 @@ h1 {
 h2 {
     font-size: 200%;
     text-align: center;
+
 }
 
 h3 {
     padding-bottom: 5px;
     font-size: 150%;
+    margin-top: 20px;
 }
 
 h4 {
@@ -55,12 +59,17 @@ header, nav, section,aside,footer {
 
 }
 
+.hej {
+height: 600px;
+
+}
+
 /*  Sjävla toppen av hemsidan där sidrubrik ("Djupvik") samt bilden på solnedgången */ 
 header {
     height: 261px;
     width: 1200px;
     background-size: cover;
-    background-color: #aef359;
+    background-color:white;
     background-image: url("../images/header.png")
 }
 
@@ -78,12 +87,13 @@ nav a:hover {
 
 /*  Stil för sections som innehåller en stor del av hemsidans innehåll. Sections storlek och textens marginaler avgörs här*/ 
 section {
-    min-height: 300px;
+
     height: auto;
     width: 500px;
     padding: 10px 30px;
-    margin-left: 180px;
+    margin-left: 0px;
     background: white;
+    border: 1px solid gainsboro;
 }
 
 
@@ -168,7 +178,11 @@ footer {
 
 #yesno{
   display: inline-block;
-  padding:20px;
+
+}
+
+#main-place{
+    border: 1px solid grey;
 }
 
   
@@ -188,6 +202,7 @@ footer {
     display: flex;
     text-align: center;
     margin: 1px auto 1px;
+    margin-top: 40px;
     padding: 15px 50px;
     background-color: white;
     border: 3px solid black;
@@ -213,6 +228,7 @@ footer {
     display: flex;
     text-align: center;
     margin: 1px auto 1px;
+    margin-bottom: 20px;
     padding: 15px 50px;
     background-color: white;
     border: 3px solid black;
@@ -226,7 +242,7 @@ footer {
 }
 
 #vadertable {
-    margin-top: 10px;
+    margin-top: 25px;
 }
 
 .startheight {
@@ -238,7 +254,8 @@ footer {
 
 .container {
     overflow: hidden;
-    background: #aef359
+    background: white;
+
 }
 
 .row {
@@ -264,7 +281,7 @@ footer {
     /*  col1, col2,col3,col4,col5 är de olika kolumnerna som i sin tur finns innanför row. De får i tillsammans (ex. col1 och col2 tillsammans) max komma upp i 100% (hela raden)  */
     .large-col-1 {
         width: 40%;
-        margin-left: 150px;
+        margin-left: 50px;
     }
     
     .large-col-2 {
@@ -273,7 +290,7 @@ footer {
     
     .large-col-3 {
         width: 69%;
-        margin-left: 150px;
+        margin-left: 50px;
     }
     
     .large-col-4 {
@@ -324,7 +341,10 @@ footer {
     }
     
 
-
+#boldi{
+    font-weight: bold;
+    font-size: 20px;
+}
 
 
 
@@ -338,6 +358,8 @@ footer {
     color: black;
     border-collapse: collapse;
     border-spacing: 0;
+
+    
     
     }
     
@@ -347,7 +369,7 @@ footer {
     
     th {
     font-weight: bold;
-    background: grey;
+    background: white;
     }
     
     td,
